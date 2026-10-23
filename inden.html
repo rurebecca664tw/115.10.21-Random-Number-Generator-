@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#f5f7f2">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@300&display=swap" rel="stylesheet">
 	<title>課堂抽籤機</title>
 	<style>
 		/* 全頁色彩與尺寸設定，維持投影時的高對比與大字級。 */
@@ -20,7 +24,8 @@
 			--coral: #e66c4e;
 			--sun: #f2c65e;
 			--shadow: 0 18px 50px rgba(23, 43, 42, 0.08);
-			font-family: "Avenir Next", "PingFang TC", "Microsoft JhengHei", sans-serif;
+			font-family: "Chiron GoRound TC", sans-serif;
+			font-weight: 300;
 			font-synthesis: none;
 			text-rendering: optimizeLegibility;
 		}
@@ -78,7 +83,7 @@
 			background: #fff;
 			cursor: pointer;
 			font-size: 14px;
-			font-weight: 750;
+			font-weight: 300;
 		}
 
 		.sound-toggle-button[aria-pressed="false"] { color: var(--muted); background: #f1f3f0; }
@@ -89,15 +94,14 @@
 			width: 48px;
 			height: 48px;
 			place-items: center;
-			border-radius: 15px;
-			color: #fff;
-			background: var(--green);
-			box-shadow: 0 8px 18px rgba(23, 107, 88, 0.2);
-			font-size: 24px;
-			font-weight: 800;
 		}
+		.brand-mark-image { width: auto; max-width: 48px; height: 48px; object-fit: contain; transform: translate(3px, 10px) scale(1.5); }
 
 		h1 { margin: 0; font-size: 25px; line-height: 1.2; }
+		h1, .mode-button, .group-source-button, .draw-button, #stage-mode-label {
+			font-family: "Zen Maru Gothic", sans-serif;
+		}
+		h1, #stage-mode-label { font-weight: 900; }
 		.brand p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
 
 		.mode-switch {
@@ -118,7 +122,7 @@
 			background: transparent;
 			cursor: pointer;
 			font-size: 15px;
-			font-weight: 700;
+			font-weight: 900;
 		}
 
 		.mode-button[aria-pressed="true"] {
@@ -174,10 +178,10 @@
 			gap: 10px;
 			margin-bottom: 9px;
 			font-size: 15px;
-			font-weight: 750;
+			font-weight: 300;
 		}
 
-		.field-hint { color: var(--muted); font-size: 12px; font-weight: 500; }
+		.field-hint { color: var(--muted); font-size: 12px; font-weight: 300; }
 
 		.range-entry {
 			display: grid;
@@ -231,7 +235,7 @@
 			color: var(--green-dark);
 			background: #eff8f3;
 			font-size: 14px;
-			font-weight: 700;
+			font-weight: 300;
 		}
 
 		.chip-remove {
@@ -285,7 +289,7 @@
 			background: transparent;
 			cursor: pointer;
 			font-size: 14px;
-			font-weight: 700;
+			font-weight: 900;
 		}
 
 		.group-source-button[aria-pressed="true"] {
@@ -303,7 +307,7 @@
 			background: transparent;
 			cursor: pointer;
 			font-size: 12px;
-			font-weight: 700;
+			font-weight: 300;
 		}
 
 		.strategy-button[aria-pressed="true"] {
@@ -357,7 +361,16 @@
 			border-radius: 8px;
 			background: #f5f8f5;
 			font-size: 16px;
-			font-weight: 700;
+			font-weight: 300;
+		}
+
+		.group-member-photo {
+			width: 42px;
+			height: 42px;
+			flex: 0 0 auto;
+			border: 1px solid #d7ebe0;
+			border-radius: 50%;
+			object-fit: cover;
 		}
 
 		.group-member.is-leader {
@@ -375,7 +388,7 @@
 			color: #47665a;
 			background: #e5eee8;
 			font-size: 11px;
-			font-weight: 700;
+			font-weight: 300;
 		}
 
 		.leader-badge {
@@ -384,7 +397,7 @@
 			color: #7f4b08;
 			background: #ffedb7;
 			font-size: 11px;
-			font-weight: 800;
+			font-weight: 300;
 		}
 
 		.group-leader-button, .all-leaders-button {
@@ -395,7 +408,7 @@
 			background: #fff;
 			cursor: pointer;
 			font-size: 14px;
-			font-weight: 750;
+			font-weight: 300;
 		}
 
 		.group-leader-button { width: 100%; }
@@ -415,7 +428,7 @@
 		.all-leaders-button[hidden] { display: none; }
 
 		.quantity-row { display: flex; align-items: center; gap: 12px; }
-		.quantity-row .number-input { width: 108px; font-size: 20px; font-weight: 750; text-align: center; }
+		.quantity-row .number-input { width: 108px; font-size: 20px; font-weight: 300; text-align: center; }
 		.quantity-caption { color: var(--muted); font-size: 14px; }
 
 		.switch-row {
@@ -481,7 +494,7 @@
 			box-shadow: 0 8px 18px rgba(23, 107, 88, 0.2);
 			cursor: pointer;
 			font-size: 20px;
-			font-weight: 800;
+			font-weight: 900;
 			transition: background 140ms ease, transform 140ms ease;
 		}
 
@@ -494,7 +507,7 @@
 			margin: 13px 0 0;
 			color: var(--green-dark);
 			font-size: 14px;
-			font-weight: 750;
+			font-weight: 300;
 			text-align: center;
 		}
 
@@ -533,7 +546,7 @@
 			gap: 16px;
 			color: var(--muted);
 			font-size: 14px;
-			font-weight: 700;
+			font-weight: 300;
 		}
 
 		.live-indicator { display: inline-flex; align-items: center; gap: 8px; }
@@ -550,7 +563,7 @@
 
 		.result-placeholder { color: #aab7b0; text-align: center; }
 		.placeholder-symbol { display: block; margin-bottom: 14px; color: #75a78e; font-size: 62px; line-height: 1; }
-		.placeholder-title { margin: 0; color: var(--ink); font-size: clamp(25px, 3vw, 38px); font-weight: 800; }
+		.placeholder-title { margin: 0; color: var(--ink); font-size: clamp(25px, 3vw, 38px); font-weight: 300; }
 		.placeholder-copy { margin: 9px 0 0; font-size: 16px; }
 
 		.result-grid {
@@ -574,7 +587,7 @@
 			background: #f1f9f4;
 			box-shadow: 0 12px 28px rgba(23, 107, 88, 0.1);
 			font-size: clamp(46px, 8vw, 100px);
-			font-weight: 850;
+			font-weight: 300;
 			line-height: 1;
 			overflow-wrap: anywhere;
 			text-align: center;
@@ -582,6 +595,23 @@
 		}
 
 		.result-tile.name-tile { width: min(100%, 340px); min-height: 120px; font-size: clamp(28px, 4vw, 48px); }
+		.result-tile.has-image {
+			display: flex;
+			min-height: 220px;
+			flex-direction: column;
+			justify-content: center;
+			gap: 10px;
+			font-size: 32px;
+			line-height: 1.2;
+		}
+		.result-tile.name-tile.has-image { min-height: 240px; font-size: 24px; }
+		.result-tile-image {
+			width: min(100%, 150px);
+			aspect-ratio: 1;
+			border: 2px solid #d7ebe0;
+			border-radius: 50%;
+			object-fit: cover;
+		}
 		.result-grid.is-spinning .result-tile { color: #81978c; background: #f7faf7; animation: spin-flash 140ms ease-in-out infinite alternate; }
 
 		@keyframes reveal {
@@ -625,7 +655,7 @@
 			background: #fff;
 			cursor: pointer;
 			font-size: 13px;
-			font-weight: 700;
+			font-weight: 300;
 		}
 
 		.reset-button:hover { border-color: #b5c7bc; background: #f7faf7; }
@@ -645,7 +675,7 @@
 		}
 
 		.history-time { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
-		.history-values { font-size: 15px; font-weight: 750; overflow-wrap: anywhere; }
+		.history-values { font-size: 15px; font-weight: 300; overflow-wrap: anywhere; }
 
 		.visually-hidden {
 			position: absolute;
@@ -682,6 +712,9 @@
 			.result-area { min-height: 245px; padding: 22px 0; }
 			.result-tile { width: min(42vw, 160px); min-height: min(42vw, 160px); border-radius: 18px; font-size: clamp(42px, 13vw, 68px); }
 			.result-tile.name-tile { width: 100%; min-height: 98px; font-size: 32px; }
+			.result-tile.has-image { min-height: 185px; font-size: 24px; }
+			.result-tile.name-tile.has-image { min-height: 210px; font-size: 20px; }
+			.result-tile-image { width: min(100%, 120px); }
 			.group-results { grid-template-columns: 1fr; }
 			.stage-footer { align-items: flex-start; flex-direction: column; }
 			.control-panel { padding: 19px 16px; }
@@ -727,7 +760,7 @@
 		<header class="topbar">
 			<div class="masthead-line">
 				<div class="brand">
-					<div class="brand-mark" aria-hidden="true">抽</div>
+					<div class="brand-mark" aria-hidden="true"><img class="brand-mark-image" src="libraries/扭蛋機-icon.png" alt=""></div>
 					<div>
 						<h1>課堂抽籤機</h1>
 						<p>讓每一次回答，都公平又有趣</p>
@@ -885,6 +918,10 @@
 			state: "classroom-draw-state-v1",
 			sound: "classroom-draw-sound-v1"
 		};
+		const PROFILE_IMAGE_SOURCES = {
+			male: { directory: "libraries/大頭貼(男）", first: 1, last: 17 },
+			female: { directory: "libraries/大頭貼 (女)", first: 18, last: 35 }
+		};
 
 		const elements = {
 			numberModeButton: document.querySelector("#number-mode-button"),
@@ -943,6 +980,8 @@
 		};
 
 		let spinTimer = null;
+		let spinAudio = null;
+		let revealAudio = null;
 		let confettiFrame = null;
 
 		// localStorage 在隱私瀏覽或檔案網址環境可能不可用，因此所有操作都防護例外。
@@ -1103,6 +1142,28 @@
 			}).filter((candidate) => !excluded.has(candidate.key) && !excluded.has(candidate.label));
 		}
 
+		function getCandidateGender(candidate) {
+			if (candidate.gender === "male" || candidate.gender === "female") return candidate.gender;
+			const sourceMode = state.mode === "groups" ? state.sourceMode : state.mode;
+			if (sourceMode === "number") {
+				const number = Number(candidate.key);
+				if (number >= 1 && number <= 15) return "male";
+				if (number >= 21 && number <= 33) return "female";
+				return null;
+			}
+
+			const match = candidate.label.match(/[（(](男|女)[）)]\s*$/);
+			return match ? (match[1] === "男" ? "male" : "female") : null;
+		}
+
+		function getProfileImagePath(candidate) {
+			const gender = getCandidateGender(candidate);
+			const source = PROFILE_IMAGE_SOURCES[gender];
+			if (!source) return null;
+			const imageNumber = source.first + Math.floor(Math.random() * (source.last - source.first + 1));
+			return `${source.directory}/${imageNumber}.jpg`;
+		}
+
 		// 同步剩餘人數、模式提示及抽籤按鈕狀態。
 		function updateAvailability() {
 			const available = state.mode === "groups" ? getGroupingCandidates().length : getAvailableCandidates().length;
@@ -1150,13 +1211,33 @@
 			resultGrid.className = `result-grid${spinning ? " is-spinning" : ""}`;
 			resultGrid.setAttribute("aria-label", spinning ? "抽籤中" : "抽出結果");
 			values.forEach((value) => {
+				const candidate = typeof value === "string" ? null : value;
+				const label = candidate ? candidate.label : value;
 				const tile = document.createElement("div");
 				tile.className = `result-tile${state.mode === "name" ? " name-tile" : ""}`;
-				tile.textContent = value;
+				if (candidate && !spinning) {
+					const imagePath = getProfileImagePath(candidate);
+					if (imagePath) {
+						const image = document.createElement("img");
+						image.className = "result-tile-image";
+						image.src = imagePath;
+						image.alt = `${label} 的大頭貼`;
+						image.onerror = () => {
+							tile.classList.remove("has-image");
+							image.remove();
+						};
+						tile.classList.add("has-image");
+						tile.append(image);
+					}
+				}
+				const resultLabel = document.createElement("span");
+				resultLabel.textContent = label;
+				tile.append(resultLabel);
 				resultGrid.append(tile);
 			});
 			elements.resultArea.replaceChildren(resultGrid);
-			elements.resultCaption.textContent = spinning ? "幸運名單即將揭曉…" : `恭喜入選：${values.join("、")}`;
+			const labels = values.map((value) => typeof value === "string" ? value : value.label);
+			elements.resultCaption.textContent = spinning ? "幸運名單即將揭曉…" : `恭喜入選：${labels.join("、")}`;
 		}
 
 		function renderHistory() {
@@ -1306,6 +1387,16 @@
 				group.members.forEach((member) => {
 					const item = document.createElement("li");
 					item.className = `group-member${group.leaderKey === member.key ? " is-leader" : ""}`;
+					if (!Object.hasOwn(member, "profileImagePath")) member.profileImagePath = getProfileImagePath(member);
+					const imagePath = member.profileImagePath;
+					if (imagePath) {
+						const image = document.createElement("img");
+						image.className = "group-member-photo";
+						image.src = imagePath;
+						image.alt = `${member.label} 的大頭貼`;
+						image.onerror = () => image.remove();
+						item.append(image);
+					}
 					const name = document.createElement("span");
 					name.className = "member-name";
 					name.textContent = member.label;
@@ -1360,32 +1451,31 @@
 			renderGroupResults();
 		}
 
-		// 在瀏覽器手勢觸發後建立音訊節點，播放短促的上行提示音。
+		function startSpinSound() {
+			if (!state.soundEnabled) return;
+			if (!spinAudio) {
+				spinAudio = new Audio("libraries/メッセージ表示音3.mp3");
+				spinAudio.loop = true;
+				spinAudio.volume = 0.55;
+			}
+			spinAudio.currentTime = 0;
+			spinAudio.play().catch(() => {});
+		}
+
+		function stopSpinSound() {
+			if (!spinAudio) return;
+			spinAudio.pause();
+			spinAudio.currentTime = 0;
+		}
+
 		function playRevealSound() {
 			if (!state.soundEnabled) return;
-			const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-			if (!AudioContextClass) return;
-
-			try {
-				const audioContext = new AudioContextClass();
-				[523.25, 659.25, 783.99].forEach((frequency, index) => {
-					const oscillator = audioContext.createOscillator();
-					const gain = audioContext.createGain();
-					const startAt = audioContext.currentTime + index * 0.11;
-					oscillator.type = "sine";
-					oscillator.frequency.value = frequency;
-					gain.gain.setValueAtTime(0.0001, startAt);
-					gain.gain.exponentialRampToValueAtTime(0.16, startAt + 0.025);
-					gain.gain.exponentialRampToValueAtTime(0.0001, startAt + 0.28);
-					oscillator.connect(gain);
-					gain.connect(audioContext.destination);
-					oscillator.start(startAt);
-					oscillator.stop(startAt + 0.3);
-				});
-				window.setTimeout(() => audioContext.close(), 700);
-			} catch (error) {
-				// 靜音或不支援音訊的瀏覽器仍可正常完成抽籤。
+			if (!revealAudio) {
+				revealAudio = new Audio("libraries/キラッ1.mp3");
+				revealAudio.volume = 0.75;
 			}
+			revealAudio.currentTime = 0;
+			revealAudio.play().catch(() => {});
 		}
 
 		// 使用 Canvas 繪製短暫彩帶，無需圖片、套件或網路資源。
@@ -1466,6 +1556,7 @@
 
 			state.spinning = true;
 			updateAvailability();
+			startSpinSound();
 			const finishAt = Date.now() + 2000;
 			spinTimer = window.setInterval(() => {
 				const preview = randomSample(available, requestedCount).map((candidate) => candidate.label);
@@ -1474,6 +1565,7 @@
 				if (Date.now() >= finishAt) {
 					window.clearInterval(spinTimer);
 					spinTimer = null;
+					stopSpinSound();
 					finishDraw(randomSample(available, requestedCount));
 				}
 			}, 75);
@@ -1486,7 +1578,7 @@
 			state.history.unshift({ time: new Date().toISOString(), mode: state.mode, values });
 			state.history = state.history.slice(0, 50);
 			saveState();
-			renderResults(values);
+			renderResults(selected);
 			renderHistory();
 			updateAvailability();
 			playRevealSound();
@@ -1563,6 +1655,10 @@
 			state.soundEnabled = !state.soundEnabled;
 			writeStorage(STORAGE_KEYS.sound, String(state.soundEnabled));
 			updateSoundButton();
+			if (state.spinning) {
+				if (state.soundEnabled) startSpinSound();
+				else stopSpinSound();
+			}
 		});
 		elements.settingsPanel.addEventListener("toggle", syncSettingsPanel);
 		// 空白鍵在非輸入或按鈕焦點時開始抽籤，並避免觸發頁面捲動。
